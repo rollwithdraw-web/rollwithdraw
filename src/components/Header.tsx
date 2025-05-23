@@ -51,11 +51,11 @@ const Header = ({ onCartToggle }: { onCartToggle: () => void }) => {
 
   // Navigation Items
   const navItems = [
-    { name: 'Home', href: '/rw/', scrollTo: '#hero' },
-    { name: 'How It Works', href: '/rw/', scrollTo: '#how-it-works' },
-    { name: 'Pricing', href: '/rw/', scrollTo: '#products' },
+    { name: 'Home', href: '/', scrollTo: '#hero' },
+    { name: 'How It Works', href: '/', scrollTo: '#how-it-works' },
+    { name: 'Pricing', href: '/', scrollTo: '#products' },
     { name: 'Referrals', href: '/dashboard', state: { section: 'referrals' } },
-    { name: 'FAQ', href: '/rw/', scrollTo: '#faq' }
+    { name: 'FAQ', href: '/', scrollTo: '#faq' }
   ]
 
   // Check Authentication Status
@@ -71,7 +71,7 @@ const Header = ({ onCartToggle }: { onCartToggle: () => void }) => {
         setUserEmail(user.email || '')
         
         // Fetch additional user details if needed
-        setUserAvatar('/rw/avatar.jpg')
+        setUserAvatar('/avatar.jpg')
       }
     } else {
       setIsAuthenticated(false)
@@ -126,7 +126,7 @@ const Header = ({ onCartToggle }: { onCartToggle: () => void }) => {
 
       // Close mobile menu and navigate to home
       setIsMobileMenuOpen(false)
-      navigate('/rw/')
+      navigate('/')
     } catch (err) {
       console.error('Logout failed', err)
     }
@@ -135,7 +135,7 @@ const Header = ({ onCartToggle }: { onCartToggle: () => void }) => {
   // Navigation Handler
   const handleNavigation = useCallback((href: string, scrollTo?: string, state?: any) => {
     // If on home page, use smooth scroll
-    if (location.pathname === '/rw/' && scrollTo) {
+    if (location.pathname === '/' && scrollTo) {
       smoothScrollToSection(scrollTo)
     } else if (scrollTo) {
       // Navigate to home and scroll after a small delay

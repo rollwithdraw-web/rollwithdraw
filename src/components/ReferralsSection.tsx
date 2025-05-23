@@ -240,7 +240,7 @@ const ReferralsSection: React.FC = () => {
   }
 
   const copyToClipboard = (code: string) => {
-    const referralLink = `https://dowody.github.io/rw/signin?ref=${code}`
+    const referralLink = `https://rollwithdraw.com/signin?ref=${code}`
     navigator.clipboard.writeText(referralLink)
     setCopiedCode(code)
     toast.success('Referral link copied to clipboard!')
@@ -759,7 +759,7 @@ const ReferralsSection: React.FC = () => {
                         <Share2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#8a4fff]" />
                   </div>
                   <div className="min-w-0 flex-1">
-                        <p className="text-sm sm:text-base text-white font-medium truncate">https://dowody.github.io/rw/signin?ref={code.code}</p>
+                        <p className="text-sm sm:text-base text-white font-medium truncate">https://rollwithdraw.com/signin?ref={code.code}</p>
                         <p className="text-xs sm:text-sm text-gray-400">
                       Created {code.createdAt.toLocaleDateString()}
                     </p>

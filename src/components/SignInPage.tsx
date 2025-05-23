@@ -51,7 +51,7 @@ const SignInPage: React.FC = () => {
       // If authenticated, redirect to home or previous page
       if (session) {
         const state = location.state as { from?: string }
-        const destinationPath = state?.from || '/rw/dashboard'
+        const destinationPath = state?.from || '/dashboard'
         navigate(destinationPath, { replace: true })
       }
     }
@@ -153,7 +153,7 @@ const SignInPage: React.FC = () => {
       }
 
       // Redirect to dashboard or home page after successful sign in
-      navigate('/rw/dashboard')
+      navigate('/dashboard')
     } catch (err) {
       setError('An unexpected error occurred')
     } finally {
@@ -223,7 +223,7 @@ const SignInPage: React.FC = () => {
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/rw/dashboard`
+          emailRedirectTo: `${window.location.origin}/dashboard`
         }
       })
 
@@ -419,7 +419,7 @@ const SignInPage: React.FC = () => {
       <div className="absolute inset-0 h-[100vh]">
         <div
           style={{
-            backgroundImage: 'url(/rw/hero_bg.jpg)',
+            backgroundImage: 'url(/hero_bg.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             width: '100%',

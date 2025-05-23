@@ -1791,7 +1791,7 @@ const UserDashboard: React.FC = () => {
               <div className="flex flex-col items-center mb-6 sm:mb-8">
                 <div className="relative">
                   <img 
-                    src={'/rw/avatar.jpg'} 
+                    src={'/avatar.jpg'} 
                     alt={userData?.username || 'User'}
                     className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-[#8a4fff] mb-3 sm:mb-4 object-cover"
                   />
@@ -1841,7 +1841,7 @@ const UserDashboard: React.FC = () => {
                   {/* User Profile Card */}
                   <div className="bg-gradient-to-br from-[#210746] to-[#2C095D] rounded-3xl p-4 sm:p-8 border border-[#8a4fff]/10 flex items-center">
                     <img 
-                      src={'/rw/avatar.jpg'} 
+                      src={'/avatar.jpg'} 
                       alt={userData?.username}
                       className="w-16 h-16 sm:w-24 sm:h-24 rounded-full mr-4 sm:mr-6 border-4 border-[#8a4fff]"
                     />

@@ -152,7 +152,7 @@ const PasswordResetPage: React.FC = () => {
         <div className="absolute inset-0 h-[100vh]">
           <div
             style={{
-              backgroundImage: 'url(/rw/hero_bg.jpg)',
+              backgroundImage: 'url(/hero_bg.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               width: '100%',
@@ -263,7 +263,7 @@ const PasswordResetPage: React.FC = () => {
       <div className="absolute inset-0 h-[100vh]">
         <div
           style={{
-            backgroundImage: 'url(/rw/hero_bg.jpg)',
+            backgroundImage: 'url(/hero_bg.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             width: '100%',

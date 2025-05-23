@@ -20,6 +20,7 @@ import AdminSignIn from './pages/AdminSignIn'
 import AdminDashboard from './pages/AdminDashboard'
 import SessionTokenPage from './pages/SessionTokenPage'
 import { initializeIPTracking } from './lib/ipTracker'
+import NotFound from './pages/NotFound'
 
 // Lazy load components
 const Home = React.lazy(() => import('./components/Home'))
@@ -140,6 +141,7 @@ const AppContent: React.FC = () => {
   const location = useLocation()
   const [isAdminRoute, setIsAdminRoute] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const navigate = useNavigate()
 
   const toggleCart = useCallback(() => {
     setIsCartOpen(prev => !prev)
@@ -238,7 +240,7 @@ const AppContent: React.FC = () => {
             />
             <Route path="/admin" element={<AdminSignIn />} />
             <Route
-              path="/admin/dashboard"
+              path="/admin/*"
               element={
                 <ProtectedAdminRoute>
                   <AdminDashboard />
@@ -246,7 +248,7 @@ const AppContent: React.FC = () => {
               }
             />
             <Route path="/reset-password" element={<PasswordResetPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
         {!isAdminRoute && <CartDropdown isOpen={isCartOpen} onClose={closeCart} />}
@@ -260,16 +262,27 @@ const AppContent: React.FC = () => {
 const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
   const [isAuthorized, setIsAuthorized] = useState(false)
   const [isChecking, setIsChecking] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const checkAuth = async () => {
-      const hasAccess = await requireAdmin()
-      setIsAuthorized(hasAccess)
-      setIsChecking(false)
+      try {
+        const hasAccess = await requireAdmin()
+        if (!hasAccess) {
+          navigate('/admin', { replace: true })
+          return
+        }
+        setIsAuthorized(true)
+      } catch (error) {
+        console.error('Admin auth check failed:', error)
+        navigate('/admin', { replace: true })
+      } finally {
+        setIsChecking(false)
+      }
     }
 
     checkAuth()
-  }, [])
+  }, [navigate])
 
   if (isChecking) {
     return (
@@ -279,7 +292,7 @@ const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
     )
   }
 
-  return isAuthorized ? <>{children}</> : <Navigate to="/admin" replace />
+  return isAuthorized ? <>{children}</> : null
 }
 
 // Root App with Router and Context

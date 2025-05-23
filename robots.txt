@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://dowody.github.io/rw/sitemap.xml
+Sitemap: https://rollwithdraw.com/sitemap.xml
 
 # Disallow admin and private routes
 Disallow: /admin/

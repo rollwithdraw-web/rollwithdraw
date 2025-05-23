@@ -11,7 +11,7 @@ export const generatePasswordResetUrl = async (email: string) => {
   try {
     // Generate a password reset token and send email using Supabase
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/rw/reset-password`
+      redirectTo: `${window.location.origin}/reset-password`
     })
 
     if (error) {

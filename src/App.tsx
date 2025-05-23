@@ -285,7 +285,7 @@ const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
 // Root App with Router and Context
 const App: React.FC = () => {
   return (
-    <Router basename="/rw/">
+    <Router>
       <CartProvider>
         <InitialLoadWrapper>
           <AppContent />

@@ -248,6 +248,7 @@ const AppContent: React.FC = () => {
               }
             />
             <Route path="/reset-password" element={<PasswordResetPage />} />
+            <Route path="/not-found" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>

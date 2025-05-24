@@ -4,29 +4,24 @@
     <meta charset="utf-8">
     <title>RollWithdraw</title>
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      var pathSegmentsToKeep = 0;
-
       var l = window.location;
       var path = l.pathname.split('/').slice(1);
-      var query = l.search.slice(1);
-      var hash = l.hash;
       
-      // Special handling for admin routes
-      if (path[0] === 'admin') {
-        pathSegmentsToKeep = 1;
+      // List of valid routes
+      var validRoutes = ['admin', 'signin', 'checkout', 'terms', 'privacy', 'policy', 'dashboard', 'reset-password', 'session-token'];
+      
+      // Check if the path is valid
+      var isValidRoute = validRoutes.some(route => path[0] === route) || path.length === 0;
+      
+      if (isValidRoute) {
+        // For valid routes, use the standard SPA redirect
+        var newUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?/' + path.join('/');
+        l.replace(newUrl);
+      } else {
+        // For invalid routes, redirect to the NotFound page
+        var notFoundUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?/not-found';
+        l.replace(notFoundUrl);
       }
-
-      var newPath = path.slice(pathSegmentsToKeep).join('/');
-      var newUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        newPath.replace(/&/g, '~and~') +
-        (query ? '&' + query.replace(/&/g, '~and~') : '') +
-        hash;
-
-      l.replace(newUrl);
     </script>
   </head>
   <body>

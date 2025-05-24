@@ -346,7 +346,7 @@ const Products = () => {
     window.dispatchEvent(new Event('openCart'))
   }
 
-  // In the products array, do not filter yet
+
   const products = [
     {
       id: 'free-trial',
@@ -358,7 +358,7 @@ const Products = () => {
       duration_days: 1,
       image: "https://mir-s3-cdn-cf.behance.net/project_modules/source/b95e8765126337.60af5cc76e5df.jpg",
       features: [
-        "Original Price: €49.99",
+        "Original Price: ",
         "You Save: €49.99",
         "Discount: 100% off",
         "24-Hour Full Access",

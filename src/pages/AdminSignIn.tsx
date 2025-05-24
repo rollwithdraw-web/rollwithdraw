@@ -119,7 +119,7 @@ const AdminSignIn: React.FC = () => {
       {/* Content */}
       <div className="relative min-h-screen flex items-center justify-center p-4 sm:p-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="w-full max-w-[95%] sm:max-w-md"
@@ -135,9 +135,9 @@ const AdminSignIn: React.FC = () => {
             <AnimatePresence>
               {error && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 1, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  exit={{ opacity: 1, y: -10 }}
                   className="mb-4 sm:mb-6 bg-red-500/10 border border-red-500/30 text-red-400 p-3 sm:p-4 rounded-xl flex items-center"
                 >
                   <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 flex-shrink-0" />

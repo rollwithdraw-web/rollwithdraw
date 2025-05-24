@@ -7,7 +7,7 @@ interface DiscordButtonProps {
 }
 
 export default function DiscordButton({ 
-  inviteLink = 'https://discord.gg/XxHsYT4m'
+  inviteLink = 'https://discord.gg/CdjMzrghdH'
 }: DiscordButtonProps) {
   const handleDiscordClick = () => {
     try {

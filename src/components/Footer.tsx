@@ -159,7 +159,7 @@ const Footer = () => {
                 <Server className="mr-2 w-4 h-4 sm:w-5 sm:h-5" /> Community
               </h4>
               <a 
-                href="https://discord.gg/XxHsYT4m" 
+                href="https://discord.gg/CdjMzrghdH" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center bg-[#5865F2]/10 p-2 sm:p-3 rounded-lg hover:bg-[#5865F2]/20 transition-colors"
